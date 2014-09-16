@@ -39,8 +39,8 @@ echo "*** ActiveMQ installation complete ***"
 
 
 echo "*** Tomcat 7 ***"
-if [ ! -f /etc/init.d/tomcat7 ]; then
-		mkdir ~/tomcat
+if [ ! -f /etc/init.d/tomcat7 ]; then		
+		mkdir -p ~/tomcat
         cd ~/tomcat
         wget -q http://apache.cs.utah.edu/tomcat/tomcat-7/v7.0.55/bin/apache-tomcat-7.0.55.tar.gz
         tar xzf apache-tomcat-7.0.55.tar.gz
@@ -68,3 +68,12 @@ if [ ! -f /etc/init.d/tomcat7 ]; then
         su -c "service tomcat7 start" ubuntu
 fi
 echo "*** Tomcat 7 installation complete ***"
+
+
+echo "*** Creating felix-cache directory ***"
+mkdir -p ~/felix-cache
+
+echo "*** Creating .motech & bundles directory ***"
+mkdir -p ~/.motech/bundles
+
+echo "** All done. Let's go to WAR!! ***"
