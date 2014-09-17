@@ -72,8 +72,9 @@ echo "*** Tomcat 7 installation complete ***"
 
 echo "*** Creating felix-cache directory ***"
 mkdir -p ~/felix-cache
-
+chown -R ubuntu.ubuntu ~/felix-cache
 echo "*** Creating .motech & bundles directory ***"
 mkdir -p ~/.motech/bundles
+chown -R ubuntu.ubuntu ~/.motech
 
 echo "** All done. Let's go to WAR!! ***"
