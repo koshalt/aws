@@ -25,7 +25,8 @@ apt-get -y -qq update
 echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
 echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
 apt-get -y -qq install oracle-java7-installer
-echo "export JAVA_OPTS=\"-Xms128m -Xmx256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+CMSPermGenSweepingEnabled\"" >> ~/.profile
+echo "export JAVA_OPTS=\"-Xms1024m -Xmx2048m -XX:MaxPermSize=1024m\"" >> ~/.profile
+echo "export CATALINA_OPTS=\"-Xms1024m -Xmx2048m -XX:MaxPermSize=1024m\"" >> ~/.profile
 source ~/.profile
 echo "*** Java 7 installation complete ***"
 
