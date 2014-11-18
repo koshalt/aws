@@ -44,22 +44,22 @@ echo "*** Tomcat 7 ***"
 if [ ! -f /etc/init.d/tomcat7 ]; then		
 		mkdir -p ~/tomcat
         cd ~/tomcat
-        wget -q http://apache.cs.utah.edu/tomcat/tomcat-7/v7.0.55/bin/apache-tomcat-7.0.55.tar.gz
-        tar xzf apache-tomcat-7.0.55.tar.gz
-        sed -i 's/<\/tomcat-users>/  <user username=\"motech\" password=\"motech\" roles=\"manager-gui\"\/>\n&/' ~/tomcat/apache-tomcat-7.0.55/conf/tomcat-users.xml
-        ln -s ~/tomcat/apache-tomcat-7.0.55 ~/tomcat/tomcat7
+        wget -q http://apache.cs.utah.edu/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+        tar xzf apache-tomcat-7.0.57.tar.gz
+        sed -i 's/<\/tomcat-users>/  <user username=\"motech\" password=\"motech\" roles=\"manager-gui\"\/>\n&/' ~/tomcat/apache-tomcat-7.0.57/conf/tomcat-users.xml
+        ln -s ~/tomcat/apache-tomcat-7.0.57 ~/tomcat/tomcat7
         printf "export CATALINA_HOME=/home/ubuntu/tomcat/tomcat7" >> ~/.profile        
 
         
         echo "case \$1 in start)
-			sh /home/ubuntu/tomcat/tomcat7/bin/startup.sh
+			su -c /home/ubuntu/tomcat/tomcat7/bin/startup.sh -s /bin/sh ubuntu
 			;;
 			stop) 
-			sh /home/ubuntu/tomcat/tomcat7/bin/shutdown.sh
+			su -c /home/ubuntu/tomcat/tomcat7/bin/shutdown.sh -s /bin/sh ubuntu
 			;;
 			restart)
-			sh /home/ubuntu/tomcat/tomcat7/bin/shutdown.sh
-			sh /home/ubuntu/tomcat/tomcat7/bin/startup.sh
+			su -c /home/ubuntu/tomcat/tomcat7/bin/shutdown.sh -s /bin/sh ubuntu
+			su -c /home/ubuntu/tomcat/tomcat7/bin/startup.sh -s /bin/sh ubuntu
 			;;
 			esac 
 			exit 0
